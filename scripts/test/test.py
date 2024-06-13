@@ -30,14 +30,14 @@ def test(filename):
     if os.path.exists(ansdata)==0:
         generate_annotations_and_exit(ansdata,'No answer file')
     
-    if os.system('single-run-with-san '+filename+' '+indata+' '+outdata):
+    if os.system('./single-run-with-san '+filename+' '+indata+' '+outdata):
         generate_annotations_and_exit(filename, 'Failed')
     cmd = 'diff -b -B '+outdata+' '+ansdata
     if os.system(cmd):
         print(filename + ' Wrong Answer')
         generate_annotations_and_exit(filename, 'Wrong Answer')
     
-    if os.system('single-run '+filename+' '+indata+' '+outdata):
+    if os.system('./single-run '+filename+' '+indata+' '+outdata):
         generate_annotations_and_exit(filename, 'Failed')
     cmd = 'diff -b -B '+outdata+' '+ansdata
     if os.system(cmd):

@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include<string>
 using namespace std;
 string compile(string code)
 {
@@ -26,7 +25,7 @@ string compile(string code)
 		#ifdef withsan
         	cout<<code+" No need to compile :/\n";
         #endif
-        system(("echo "+code+">tmp.py").c_str());
+        assert(!system(("echo "+code+">tmp.py").c_str()));
         return"python tmp.py";
 	}
 	cout<<code+"Unknown language: "+lang;
