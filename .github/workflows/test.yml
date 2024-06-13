@@ -29,7 +29,7 @@ jobs:
         with:
           files: |
             .github/workflows/test.yml
-            scripts/test.py
+            scripts/test/*
       - uses: actions/setup-python@v5
         if: steps.changed-files.outputs.any_changed == 'true' || steps.changed-scripts.outputs.any_changed == 'true'
         with:
